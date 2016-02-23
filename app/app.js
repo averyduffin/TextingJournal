@@ -15,8 +15,8 @@ config(['$routeProvider', function($routeProvider) {
         templateUrl: 'app/components/landing/landing.html',
         controller: 'landingPageController'
       }).
-      when('/page1', {
-        templateUrl: 'app/components/page1/page1.html',
+      when('/journal', {
+        templateUrl: 'app/components/journalPage/journalPage.html',
         controller: 'page1Controller'
       }).
 	  when('/page2', {

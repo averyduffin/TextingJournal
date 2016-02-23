@@ -9,7 +9,7 @@ body {
     height: 100%;
     font-family: Lora,"Helvetica Neue",Helvetica,Arial,sans-serif;
     color: #fff;
-    background-color: #FFF;
+    background-color: #247BA0;
 }
 
 html {
@@ -66,7 +66,7 @@ a:focus {
     border-bottom: 1px solid rgba(255,255,255,.3);
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    background-color: #FFF;
+    background-color: #247BA0;
 }
 
 .navbar-custom .navbar-brand {
@@ -405,4 +405,53 @@ width:100%;
     outline: 0;
     color: #000;
     background-color:  #B2DBBF;
+}
+.overlay-form{
+	text-align:left;
+	color:#000;
+	width: 500px;
+	height: 500px;
+	position:absolute;
+	top:200px;
+	left: 37vw;
+	z-index:100;
+	background: #FFF;
+}
+.overlay-container{
+	padding:50px;
+}
+
+.overlay-close{
+	float:right;
+	padding-right: 10px;
+	padding-top: 5px;
+	cursor: pointer;
+}
+
+.overlay-signin{
+	text-align:left;
+	color:#000;
+	width: 500px;
+	height: 275px;
+	position:absolute;
+	top:350px;
+	left: 37vw;
+	z-index:100;
+	background: #FFF;
+}
+
+.overlay-container-signin{
+	padding: 65px 50px 50px 50px;
+}
+
+.journal-page{
+	text-align:left;
+	color:#000;
+	width: 95vw;
+	height: 85vh;
+	position:absolute;
+	top:90px;
+	left: 2.5vw;
+	z-index:90;
+	background: #FFF;
 }

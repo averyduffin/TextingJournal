@@ -10,4 +10,14 @@ LandingPageControllers.controller('landingPageController', ['$scope', function($
 	$scope.start = function(){
 		$scope.displayForm = true;
 	}
+	$scope.close = function(){
+		$scope.displayForm = false;
+		$scope.displaySignIn = false;
+	}
+	
+	$scope.displaySignIn = false;
+	$scope.signinPress = function(){
+		console.log("WORKED")
+		$scope.displaySignIn = true;
+	}
 }]);

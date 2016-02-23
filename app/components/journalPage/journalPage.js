@@ -7,7 +7,12 @@
 
 var page1Controllers = angular.module('page1Controllers', []);
 
-page1Controllers.controller('page1Controller', ['$scope', function($scope){
+page1Controllers.controller('page1Controller', ['$scope', '$location', function($scope, $location){
 	$scope.title = "Example Page";
 	$scope.paragraph = "Try to create your own page";
+	
+	$scope.signOut = function(){
+		$location.path( "/" );
+	}
+	
 }]);
