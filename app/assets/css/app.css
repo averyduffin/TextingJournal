@@ -455,3 +455,27 @@ width:100%;
 	z-index:90;
 	background: #FFF;
 }
+.bubble-panel{
+	position:relative;
+	width:340px;
+	float:left;
+}
+.bubble-text{
+	color:#000;
+	position:absolute;
+	top:100px;
+	left:70px;
+	width:70%;
+	text-align:left;
+}
+
+.bubble-text {
+  transform: rotate(720deg);
+}
+
+.rotate {
+  transition: all 0.5s ease-in-out;
+}
+.rotate:hover {
+  transition: all 1s ease-in-out;
+}

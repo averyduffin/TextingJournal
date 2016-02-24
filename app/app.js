@@ -8,7 +8,9 @@ angular.module('myApp', [
   'page2Controllers',
   'page3Controllers',
   'directiveExamples',
-  'exampleServices'
+  'exampleServices',
+  'directives',
+  'ngAnimate'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/landing', {
@@ -28,4 +30,7 @@ config(['$routeProvider', function($routeProvider) {
         controller: 'page3Controller'
 	  }).
       otherwise({redirectTo: '/landing'});
-}]);
+}])
+.run(function($animate) {
+  $animate.enabled(true);
+});

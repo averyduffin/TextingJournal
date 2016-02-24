@@ -18,8 +18,9 @@
   <link href='https://fonts.googleapis.com/css?family=Anonymous+Pro:700italic,700,400italic,400' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+  <link rel="stylesheet" href="app/assets/css/animations.css">
   <link rel="stylesheet" href="app/assets/css/app.css">
-  <script src="app/bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+
 </head>
 <body>
 
@@ -28,7 +29,7 @@
   <![endif]-->
   <header class="intro">
     <div class="intro-body">
-		<div ng-view></div>
+		<div ng-view class="view-frame"></div>
       </div>
   </header>
   
@@ -36,12 +37,15 @@
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-animate.min.js"></script>
   <script src="app/app.js"></script>
 <script src="app/components/landing/landing.js"></script>
 <script src="app/components/journalPage/journalPage.js"></script>
 <script src="app/components/page2/page2.js"></script>
 <script src="app/components/page3/page3.js"></script>
 <script src="app/shared/directiveExample/directiveExample.js"></script>
+<script src="app/shared/directives/textBubbles.js"></script>
 <script src="app/shared/requests/exampleService.js"></script>
+<script src="app/shared/animations/animations.js"></script>
 </body>
 </html>
