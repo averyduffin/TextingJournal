@@ -8,11 +8,12 @@ directives.directive('textBubble', function() {
         replace: true,
         scope: {
             text: '=',
-			source: '='
+			source: '=',
+			extra: '=',
+			shouldShow: '='
         },
         templateUrl: 'app/shared/directives/textBubbles.html',
         link: function(scope, element, attr, basectrl){
-
         },
         controller: 'directiveExampleController',
     }

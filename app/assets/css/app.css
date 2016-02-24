@@ -473,6 +473,28 @@ width:100%;
   transform: rotate(720deg);
 }
 
+
+
+
+/*
+==================TRANSITIONS=============
+*/
+.fade{
+	opacity:1;
+}
+.fade.ng-hide-add,
+.fade.ng-hide-remove {
+  -webkit-transition:.9s linear all;
+  transition:.9s linear all;
+
+  /* remember to add this */
+  display:block!important;
+  opacity:1;
+}
+.fade.ng-hide {
+  opacity:0;
+}
+
 .rotate {
   transition: all 0.5s ease-in-out;
 }
