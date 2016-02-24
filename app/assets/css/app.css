@@ -9,7 +9,7 @@ body {
     height: 100%;
     font-family: Lora,"Helvetica Neue",Helvetica,Arial,sans-serif;
     color: #fff;
-    background-color: #247BA0;
+    /*background-color: #247BA0;*/
 }
 
 html {
@@ -170,8 +170,8 @@ a:focus {
 
 @media(min-width:768px) {
     .intro {
-        height: 100%;
-        padding: 0;
+        height: 100vh;
+
     }
 
     .intro .intro-body .brand-heading {
