@@ -1,5 +1,5 @@
 <!-- Navigation -->
-    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-custom navbar-fixed-top " scroll-header-add-class="5" role="navigation">
         <div class="container">
             <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
                 <div class="col-sm-offset-2 col-sm-8">
@@ -16,25 +16,30 @@
 <div class="container">
 <div class="row">
 
-    <div class="col-md-8 col-md-offset-2">
-        <h1 class="brand-heading"><span class="website-title-texting">Texting</span> Journal</h1>
-		<form class="form-horizontal">
-		  <div class="form-group">
-			
-			<div class="col-sm-offset-3 col-sm-6">
-			  <input type="email" class="form-control" id="inputEmail3" placeholder="Phone Number">
-			</div>
-		  </div>
-		  <div class="form-group">
-			<div class="col-sm-offset-2 col-sm-8">
-			  <button type="submit" ng-click="start()" class="btn btn-landing">Start</button>
-			</div>
-		  </div>
-		</form>
-    </div>
-	
+<div class="col-md-8 col-md-offset-2">
+	<h1 class="brand-heading"><span class="website-title-texting">Texting</span> Journal</h1>
+	<form class="form-horizontal">
+	  <div class="form-group">
+		
+		<div class="col-sm-offset-3 col-sm-6">
+		  <input type="email" class="form-control" id="inputEmail3" placeholder="Phone Number">
+		</div>
+	  </div>
+	  <div class="form-group">
+		<div class="col-sm-offset-2 col-sm-8">
+		  <button type="submit" ng-click="start()" class="btn btn-landing">Start</button>
+		</div>
+	  </div>
+	</form>
+	<a href="#about" class="btn btn-circle page-scroll">
+		<i class="fa fa-chevron-down animated"></i>
+	</a>
+</div>
 	
 </div>
+
+
+
 <div ng-if="displayForm == true" class="overlay-form">
 	<a ng-click="close()" class="overlay-close"><i class="fa fa-times fa-3x"></i></a>
 	<div class="overlay-container">
@@ -72,7 +77,7 @@
 			  <button type="submit" class="btn btn-landing">Start Journaling</button>
 		</form>
 	</div>
-</div >
+</div>
 
 <div ng-if="displaySignIn == true" class="overlay-signin">
 <a ng-click="close()" class="overlay-close"><i class="fa fa-times fa-3x"></i></a>
@@ -119,7 +124,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-lg-12 text-center">
-			<h2 class="section-header-dark">About</h2>
+			<h2 class="section-header-dark">How it works</h2>
 			<hr class="star-primary"></hr>
 		</div>
 		
@@ -143,38 +148,47 @@
 				</div>
 				<!--<text-bubble should-show="bubbleText2" source="'app/assets/img/textBubble.png'" text="''"></text-bubble>-->
 			</div>
-			<div class="bar-1 fade-bar" ani-scroll-delay="800" ani-scroll-delay-time="2000">
+			<div class="bar-1 fade-bar" ani-scroll-delay="1000" ani-scroll-delay-time="2000">
 				<img src="app/assets/img/bar.png"></src>
 			</div>
-			<div class="bar-2 fade-bar" ani-scroll-delay="800" ani-scroll-delay-time="2200">
+			<div class="bar-2 fade-bar" ani-scroll-delay="1000" ani-scroll-delay-time="2200">
 				<img src="app/assets/img/bar.png"></src>
 			</div>
-			<div class="barv-1 fade-bar" ani-scroll-delay="800" ani-scroll-delay-time="2400">
+			<div class="barv-1 fade-bar" ani-scroll-delay="1000" ani-scroll-delay-time="2400">
 				<img src="app/assets/img/bar-v.png"></src>
 			</div>
-			<div class="barv-2 fade-bar" ani-scroll-delay="800" ani-scroll-delay-time="2600">
+			<div class="barv-2 fade-bar" ani-scroll-delay="1000" ani-scroll-delay-time="2600">
 				<img src="app/assets/img/bar-v.png"></src>
 			</div>
-			<div class="barv-3 fade-bar" ani-scroll-delay="800" ani-scroll-delay-time="2800">
+			<div class="barv-3 fade-bar" ani-scroll-delay="1000" ani-scroll-delay-time="2800">
 				<img src="app/assets/img/bar-v.png"></src>
 			</div>
-			<div class="barv-4 fade-bar" ani-scroll-delay="800" ani-scroll-delay-time="3000">
+			<div class="barv-4 fade-bar" ani-scroll-delay="1000" ani-scroll-delay-time="3000">
 				<img src="app/assets/img/bar-v.png"></src>
 			</div>
-			<div class="barv-5 fade-bar" ani-scroll-delay="800" ani-scroll-delay-time="3200">
+			<div class="barv-5 fade-bar" ani-scroll-delay="1000" ani-scroll-delay-time="3200">
 				<img src="app/assets/img/bar-v.png"></src>
 			</div>
-			<div class="barv-6 fade-bar" ani-scroll-delay="1200" ani-scroll-delay-time="0">
+			<div class="barv-6 fade-bar" ani-scroll-delay="1000" ani-scroll-delay-time="3400">
+				<img src="app/assets/img/bar-v.png"></src>
+			</div>
+			<div class="barv-7 fade-bar" ani-scroll-delay="1000" ani-scroll-delay-time="3600">
+				<img src="app/assets/img/bar-v.png"></src>
+			</div>
+			<div class="barv-8 fade-bar" ani-scroll-delay="1000" ani-scroll-delay-time="3800">
+				<img src="app/assets/img/bar-v.png"></src>
+			</div>
+			<div class="barv-9 fade-bar" ani-scroll-delay="1300" ani-scroll-delay-time="0">
 				<img src="app/assets/img/bar-v.png"></src>
 			</div>
 			
-			<div class="bar-3 fade-bar" ani-scroll-delay="1200" ani-scroll-delay-time="200">
+			<div class="bar-3 fade-bar" ani-scroll-delay="1300" ani-scroll-delay-time="200">
 				<img src="app/assets/img/bar.png"></src>
 			</div>
-			<div class="bar-4 fade-bar" ani-scroll-delay="1200" ani-scroll-delay-time="400">
+			<div class="bar-4 fade-bar" ani-scroll-delay="1300" ani-scroll-delay-time="400">
 				<img src="app/assets/img/bar.png"></src>
 			</div>
-			<div class="bar-5 fade-bar" ani-scroll-delay="1200" ani-scroll-delay-time="600">
+			<div class="bar-5 fade-bar" ani-scroll-delay="1300" ani-scroll-delay-time="600">
 				<img src="app/assets/img/bar.png"></src>
 			</div>
 	</div>

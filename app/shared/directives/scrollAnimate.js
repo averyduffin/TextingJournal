@@ -134,6 +134,33 @@ angular.module('scroll-animate-directive', [])
                 });
             }
         };
+    })
+	.directive('scrollHeaderAddClass', function($window) {
+        return {
+            restrict: 'A',
+            controller: 'aniDistances',
+            transclude: true,
+            replace: true,
+            template: '<div ng-transclude ></div>',
+            scope: {
+                show: '@',
+            },
+            link: function(scope, element, attrs) {
+
+                angular.element($window).bind('scroll', function() {
+                    var targetOffset = attrs.scrollHeaderAddClass;
+                    var offset = scope.getScrollOffsets($window);
+                    if (offset.y >= targetOffset) {
+						console.log(targetOffset)
+						element.addClass("top-nav-collapse");
+						
+                    } else {
+						element.removeClass("top-nav-collapse")
+                    }
+                    scope.$apply();
+                });
+            }
+        };
     });
 
                 
