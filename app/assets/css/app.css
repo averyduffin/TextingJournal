@@ -606,3 +606,87 @@ hr.star-primary:after {
     top: 1214px;
     z-index: 50;
 }
+
+.bar-1{
+	position: absolute;
+    left: 35%;
+    top: 1214px;
+    z-index: 50;
+}
+.bar-2{
+	position: absolute;
+    left: 30%;
+    top: 1214px;
+    z-index: 50;
+}
+.barv-1{
+	position: absolute;
+    left: 30%;
+    top: 1260px;
+    z-index: 50;
+}
+.barv-2{
+	position: absolute;
+    left: 30%;
+    top: 1360px;
+    z-index: 50;
+}
+.barv-3{
+	position: absolute;
+    left: 30%;
+    top: 1460px;
+    z-index: 50;
+}
+.barv-4{
+	position: absolute;
+    left: 30%;
+    top: 1560px;
+    z-index: 50;
+}
+.barv-5{
+	position: absolute;
+    left: 30%;
+    top: 1660px;
+    z-index: 50;
+}
+.barv-6{
+	position: absolute;
+    left: 30%;
+    top: 1760px;
+    z-index: 50;
+}
+
+.bar-3{
+	position: absolute;
+    left: 30%;
+    top: 1860px;
+    z-index: 50;
+}
+.bar-4{
+	position: absolute;
+    left: 35%;
+    top: 1860px;
+    z-index: 50;
+}
+.bar-5{
+	position: absolute;
+    left: 40%;
+    top: 1860px;
+    z-index: 50;
+}
+
+.fade-bar.ng-hide {
+  display: block!important;
+  visibility: hidden;
+}
+.fade-bar.ng-hide-add{
+	-webkit-animation: zoomOut 0.4s ;
+    -moz-animation: zoomOut 0.4s ;
+    animation: zoomOut 0.4s ;
+    visibility: visible;
+}
+.fade-bar.ng-hide-remove{
+	animation: zoomIn 0.4s ;
+    -moz-animation: zoomIn 0.4s ;
+    -webkit-animation: zoomIn 0.4s ;
+}
