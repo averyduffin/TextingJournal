@@ -10,7 +10,8 @@ angular.module('myApp', [
   'directiveExamples',
   'exampleServices',
   'directives',
-  'ngAnimate'
+  'ngAnimate',
+  'scroll-animate-directive'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/landing', {

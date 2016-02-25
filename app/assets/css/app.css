@@ -492,7 +492,8 @@ width:100%;
 /*
 ==================TRANSITIONS=============
 */
-.fade{
+/*fade*/
+/*.fade{
 	opacity:1;
 }
 .fade.ng-hide-add,
@@ -500,13 +501,48 @@ width:100%;
   -webkit-transition:.9s linear all;
   transition:.9s linear all;
 
-  /* remember to add this */
+
   display:block!important;
   opacity:1;
 }
 .fade.ng-hide {
   opacity:0;
+}*/
+.fade-wait-first.ng-hide {
+  display: block!important;
+  visibility: hidden;
 }
+.fade-wait-first.ng-hide-add{
+	-webkit-animation: fadeOutDown 0.4s;
+    -moz-animation: fadeOutDown 0.4s;
+    animation: fadeOutDown 0.4s;
+    visibility: visible;
+}
+.fade-wait-first.ng-hide-remove {
+    animation: fadeInUp 0.4s;
+    -moz-animation: fadeInUp 0.4s;
+    -webkit-animation: fadeInUp 0.4s;
+}
+
+
+/*fade-wait*/
+.fade-wait.ng-hide {
+  display: block!important;
+  visibility: hidden;
+}
+.fade-wait.ng-hide-add{
+	-webkit-animation: zoomOut 0.4s ;
+    -moz-animation: zoomOut 0.4s ;
+    animation: zoomOut 0.4s ;
+    visibility: visible;
+}
+.fade-wait.ng-hide-remove{
+	animation: zoomIn 0.4s ;
+    -moz-animation: zoomIn 0.4s ;
+    -webkit-animation: zoomIn 0.4s ;
+}
+
+
 
 .rotate {
   transition: all 0.5s ease-in-out;
@@ -556,4 +592,17 @@ hr.star-primary {
 hr.star-primary:after {
   background-color: white;
   color: #2c3e50;
+}
+
+.textBubble1-placement{
+	position: absolute;
+    left: 44%;
+    top: 965px;
+    z-index: 50;
+}
+.textBubble2-placement{
+	position: absolute;
+    left: 44%;
+    top: 1214px;
+    z-index: 50;
 }
