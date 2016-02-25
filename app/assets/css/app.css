@@ -126,6 +126,16 @@ a:focus {
 	color: #000;
 }
 
+.content-main{
+	color:#000;
+}
+.container.content-main{
+	padding-bottom: 0px;
+}
+.entries{
+	margin-left: 300px;
+}
+
 @media(min-width:768px) {
     .navbar-custom {
         padding: 20px 0;
@@ -735,3 +745,15 @@ hr.star-primary:after {
 .top30 { margin-top:30px; }
 .top100 { margin-top:100px; }
 .top200 { margin-top:200px; }
+
+
+.profile-pic{
+	position: absolute;
+	z-index: 10;
+	top: 446px;
+	left: 390px;
+}
+.panel-heading.panel-heading-custom{
+	background-color:#FFF;
+	border-color: #e1e8ed;
+}
