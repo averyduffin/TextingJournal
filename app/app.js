@@ -11,7 +11,8 @@ angular.module('myApp', [
   'exampleServices',
   'directives',
   'ngAnimate',
-  'scroll-animate-directive'
+  'scroll-animate-directive',
+  'ui.bootstrap'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/landing', {

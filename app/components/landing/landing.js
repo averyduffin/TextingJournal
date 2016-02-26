@@ -4,42 +4,68 @@
 
 var LandingPageControllers = angular.module('LandingPageControllers', []);
 
-LandingPageControllers.controller('landingPageController', ['$scope',  '$interval', function($scope,$interval){
-	$scope.displayForm = false;
+LandingPageControllers.controller('landingPageController', ['$scope',  '$interval', '$uibModal', '$log', function($scope,$interval,$uibModal, $log){
 	
-	$scope.start = function(){
-		$scope.displayForm = true;
-	}
-	$scope.close = function(){
-		$scope.displayForm = false;
-		$scope.displaySignIn = false;
-	}
+	$scope.signinPress = function (size) {
+
+		var modalInstance = $uibModal.open({
+		  animation: true,
+		  templateUrl: 'app/components/popups/signIn.html',
+		  controller: 'signInController',
+		  size: size,
+		  resolve: {
+			phone: function () {
+			  return $scope.phone;
+			}
+		  }
+		});
+		modalInstance.result.then(function (selectedItem) {
+		  $scope.selected = selectedItem;
+		}, function () {
+		  $log.info('Modal dismissed at: ' + new Date());
+		});
+	};
 	
-	$scope.displaySignIn = false;
-	$scope.signinPress = function(){
-		console.log("WORKED")
-		$scope.displaySignIn = true;
-	}
+	$scope.start = function (size) {
+
+		var modalInstance = $uibModal.open({
+		  animation: true,
+		  templateUrl: 'app/components/popups/signUp.html',
+		  controller: 'signUpController',
+		  size: size,
+		  resolve: {
+			phone: function () {
+			  return $scope.phone;
+			}
+		  }
+		});
+		modalInstance.result.then(function (selectedItem) {
+		  $scope.selected = selectedItem;
+		}, function () {
+		  $log.info('Modal dismissed at: ' + new Date());
+		});
+	};
 	
-	//presentation
-	$scope.bubbleText1 = false;
-	$scope.bubbleText2 = false;
-	var stop;
-	$scope.startPresenting = function(){
-		if ( angular.isDefined(stop) ) return;
-		stop = $interval($scope.present, 1000, 1);
-	}
-	$scope.present = function(){
-		$scope.bubbleText1 = true;
-		 $interval(function(){
-			 $scope.bubbleText2 = true;
-		 }, 3000, 1);
-	}
-	$scope.stopPresenting = function(){
-		if (angular.isDefined(stop)) {
-            $interval.cancel(stop);
-            stop = undefined;
-          }
-	}
-	$scope.startPresenting();
+}]);
+
+LandingPageControllers.controller('signInController', ['$scope', '$uibModalInstance', function($scope, $uibModalInstance, phone){
+	$scope.phone = phone;
+	 $scope.ok = function () {
+		$uibModalInstance.close("TEST");
+	  };
+
+	  $scope.cancel = function () {
+		$uibModalInstance.dismiss('cancel');
+	  };
+}]);
+
+LandingPageControllers.controller('signUpController', ['$scope', '$uibModalInstance', function($scope, $uibModalInstance, phone){
+	$scope.phone = phone;
+	 $scope.ok = function () {
+		$uibModalInstance.close("TEST");
+	  };
+
+	  $scope.cancel = function () {
+		$uibModalInstance.dismiss('cancel');
+	  };
 }]);
