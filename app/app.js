@@ -8,20 +8,20 @@ angular.module('myApp', [
   'page2Controllers',
   'page3Controllers',
   'directiveExamples',
-  'exampleServices',
   'directives',
   'ngAnimate',
   'scroll-animate-directive',
   'ui.bootstrap',
   'authenticationServices',
-  'ngCookies'
+  'ngCookies',
+  'phonefilters'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/landing', {
         templateUrl: 'app/components/landing/landing.html',
         controller: 'landingPageController'
       }).
-      when('/journal', {
+      when('/journal/:id', {
         templateUrl: 'app/components/journalPage/journalPage.html',
         controller: 'page1Controller'
       }).
