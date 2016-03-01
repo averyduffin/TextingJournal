@@ -12,7 +12,9 @@ angular.module('myApp', [
   'directives',
   'ngAnimate',
   'scroll-animate-directive',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'authenticationServices',
+  'ngCookies'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/landing', {
@@ -23,16 +25,21 @@ config(['$routeProvider', function($routeProvider) {
         templateUrl: 'app/components/journalPage/journalPage.html',
         controller: 'page1Controller'
       }).
-	  when('/page2', {
-		  templateUrl: 'app/components/page2/page2.html',
-        controller: 'page2Controller'
-	  }).
-	  when('/page3', {
-		  templateUrl: 'app/components/page3/page3.html',
-        controller: 'page3Controller'
-	  }).
       otherwise({redirectTo: '/landing'});
 }])
-.run(function($animate) {
+.run(['$rootScope', '$location', '$cookieStore', '$http', '$animate', function ($rootScope, $location, $cookieStore, $http, $animate) {
   $animate.enabled(true);
-});
+  
+  // keep user logged in after page refresh
+        $rootScope.globals = $cookieStore.get('globals') || {};
+        if ($rootScope.globals.currentUser) {
+            $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata; // jshint ignore:line
+        }
+  
+        $rootScope.$on('$locationChangeStart', function (event, next, current) {
+            // redirect to login page if not logged in
+            if ($location.path() !== '/landing' && !$rootScope.globals.currentUser) {
+                $location.path('/landing');
+            }
+        });
+}]);

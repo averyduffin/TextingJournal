@@ -4,7 +4,7 @@
 
 var LandingPageControllers = angular.module('LandingPageControllers', []);
 
-LandingPageControllers.controller('landingPageController', ['$scope',  '$interval', '$uibModal', '$log', function($scope,$interval,$uibModal, $log){
+LandingPageControllers.controller('landingPageController', ['$scope',  '$interval', '$uibModal', '$log', 'AuthenticationService', function($scope,$interval,$uibModal, $log, AuthenticationService){
 	
 	$scope.signinPress = function (size) {
 
@@ -25,7 +25,7 @@ LandingPageControllers.controller('landingPageController', ['$scope',  '$interva
 		  $log.info('Modal dismissed at: ' + new Date());
 		});
 	};
-	
+	$scope.data = {};
 	$scope.start = function (size) {
 
 		var modalInstance = $uibModal.open({
@@ -34,8 +34,8 @@ LandingPageControllers.controller('landingPageController', ['$scope',  '$interva
 		  controller: 'signUpController',
 		  size: size,
 		  resolve: {
-			phone: function () {
-			  return $scope.phone;
+			data: function () {
+			  return $scope.data;
 			}
 		  }
 		});
@@ -45,18 +45,33 @@ LandingPageControllers.controller('landingPageController', ['$scope',  '$interva
 		  $log.info('Modal dismissed at: ' + new Date());
 		});
 	};
-	
 }]);
 
-LandingPageControllers.controller('signInController', ['$scope', '$uibModalInstance', function($scope, $uibModalInstance, phone){
-	$scope.phone = phone;
-	 $scope.ok = function () {
-		$uibModalInstance.close("TEST");
-	  };
+LandingPageControllers.controller('signInController' , ['$scope', '$uibModalInstance', '$location', '$rootScope', 'AuthenticationService', function($scope, $uibModalInstance,$location, $rootScope, AuthenticationService, data){
+	$scope.data = data;
+	// reset login status
+	AuthenticationService.ClearCredentials();
 
-	  $scope.cancel = function () {
+	$scope.cancel = function () {
 		$uibModalInstance.dismiss('cancel');
-	  };
+		//$uibModalInstance.close("TEST");
+	};
+
+	$scope.ok = function () {
+		$scope.dataLoading = true;
+		console.log($scope.data);
+		AuthenticationService.Login($scope.data.username, $scope.data.password, function(response) {
+			if(response.success) {
+				AuthenticationService.SetCredentials($scope.username, $scope.password);
+				$uibModalInstance.close();
+				$location.path('/journal');
+				$uibModalInstance.close();
+			} else {
+				$scope.error = response.message;
+				$scope.dataLoading = false;
+			}
+		});
+	};
 }]);
 
 LandingPageControllers.controller('signUpController', ['$scope', '$uibModalInstance', function($scope, $uibModalInstance, phone){
