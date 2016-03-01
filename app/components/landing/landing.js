@@ -75,9 +75,16 @@ LandingPageControllers.controller('signInController' , ['$scope', '$uibModalInst
 	};
 }]);
 
-LandingPageControllers.controller('signUpController', ['$scope', '$uibModalInstance','$location', '$rootScope', 'AuthenticationService', function($scope, $uibModalInstance,$location, $rootScope, AuthenticationService, data){
+LandingPageControllers.controller('signUpController', ['$scope', '$uibModalInstance','$location', '$rootScope', 'AuthenticationService',  function($scope, $uibModalInstance,$location, $rootScope, AuthenticationService, data){
 	 $scope.ok = function () {
-		$uibModalInstance.close("TEST");
+		 console.log($scope.name)
+		 console.log($scope.phone)
+		 console.log($scope.email);
+		 console.log($scope.password);
+		 console.log($scope.checkbox.daily);
+		//$uibModalInstance.close();
+		
+		
 	  };
 
 	  $scope.cancel = function () {
