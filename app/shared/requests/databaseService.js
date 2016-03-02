@@ -48,3 +48,14 @@ databaseServices.factory('Questions', ['$resource',
             query: {method:'GET', isArray:true},
         });
     }]);
+
+/*
+POST
+*/
+databaseServices.factory('Authenticate', ['$resource',
+    function($resource){
+        return $resource('http://www.textingjournal.com/api/index.php/authenticate', {}, {
+            query: {method:'GET', isArray:true},
+        });
+    }]);	
+	

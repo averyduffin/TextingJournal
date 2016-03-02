@@ -761,3 +761,7 @@ hr.star-primary:after {
 .modal-dialog{
 	margin-top:200px;
 }
+
+.msg-error{
+	color: #a94442;
+}

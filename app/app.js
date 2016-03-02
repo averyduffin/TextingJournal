@@ -15,7 +15,8 @@ angular.module('myApp', [
   'authenticationServices',
   'ngCookies',
   'phonefilters',
-  'formRequiredDirectives'
+  'formRequiredDirectives',
+  'databaseServices'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/landing', {
