@@ -4,8 +4,8 @@
 var authenticationServices = angular.module('authenticationServices', ['ngResource']);
 
 authenticationServices.factory('AuthenticationService',
-    ['Base64', '$http', '$cookieStore', '$rootScope', '$timeout',
-    function (Base64, $http, $cookieStore, $rootScope, $timeout) {
+    ['Base64', '$http', '$cookieStore', '$rootScope', '$timeout', 'Authenticate',
+    function (Base64, $http, $cookieStore, $rootScope, $timeout, Authenticate) {
         var service = {};
  
         service.Login = function (username, password, callback) {
@@ -13,13 +13,13 @@ authenticationServices.factory('AuthenticationService',
             /* Dummy authentication for testing, uses $timeout to simulate api call
 			I'm using this right now but it will need to be replaced. When I get the time!!! Not actually secure!!
              ----------------------------------------------*/
-            $timeout(function(){
+            /*$timeout(function(){
                 var response = { success: username === 'derricks' && password === 'diamonds' };
                 if(!response.success) {
                     response.message = 'Username or password is incorrect';
                 }
                 callback(response);
-            }, 1000);
+            }, 1000);*/
  
  
             /* Use this for real authentication
@@ -28,16 +28,30 @@ authenticationServices.factory('AuthenticationService',
             //    .success(function (response) {
             //        callback(response);
             //    });
+			var auth = new Authenticate();
+			auth.username = username;
+			auth.password = password;
+			auth.$save(function(data){
+				var response = { success: true };
+				response.id = data.id[0].id;
+				callback(response);
+			},
+			function(err){
+				var response = { success: false };
+				response.message = err;
+				callback(response);
+			});
  
         };
   
-        service.SetCredentials = function (username, password) {
+        service.SetCredentials = function (username, password, id) {
             var authdata = Base64.encode(username + ':' + password);
 
             $rootScope.globals = {
                 currentUser: {
                     username: username,
-                    authdata: authdata
+                    authdata: authdata,
+					id: id
                 }
             };
   

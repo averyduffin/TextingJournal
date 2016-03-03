@@ -63,12 +63,11 @@ LandingPageControllers.controller('signInController' , ['$scope', '$uibModalInst
 
 	$scope.ok = function () {
 		$scope.dataLoading = true;
-		console.log($scope.data);
 		AuthenticationService.Login($scope.data.username, $scope.data.password, function(response) {
 			if(response.success) {
-				AuthenticationService.SetCredentials($scope.username, $scope.password);
+				AuthenticationService.SetCredentials($scope.data.username, $scope.data.password, response.id);
 				$uibModalInstance.close();
-				$location.path('/journal/45');
+				$location.path('/journal/' + response.id);
 				
 			} else {
 				$scope.error = response.message;
@@ -80,7 +79,7 @@ LandingPageControllers.controller('signInController' , ['$scope', '$uibModalInst
 	
 }]);
 
-LandingPageControllers.controller('signUpController', ['$scope', '$uibModalInstance','$location', '$rootScope', 'AuthenticationService', 'Base64', 'Authenticate',  function($scope, $uibModalInstance,$location, $rootScope, AuthenticationService, Base64, Authenticate,data){
+LandingPageControllers.controller('signUpController', ['$scope', '$uibModalInstance','$location', '$rootScope', 'AuthenticationService', 'Base64', 'Authenticate', 'CheckPhone',  function($scope, $uibModalInstance,$location, $rootScope, AuthenticationService, Base64, Authenticate,CheckPhone,data){
 		$scope.user.repassword = "";
 	  $scope.cancel = function () {
 		$uibModalInstance.dismiss('cancel');
@@ -110,20 +109,18 @@ LandingPageControllers.controller('signUpController', ['$scope', '$uibModalInsta
 		$scope.user.timezone = new Date().toLocaleString();
 		
 		
-		var auth = new Authenticate();
-		auth.password = $scope.user.password;
-		auth.username = $scope.user.username;
-		auth.$save(function(data){
-			if(data.lenght > 0){
-				console.log("Length was right");
+		var checkPhone = new CheckPhone();
+		checkPhone.phonenumber = $scope.user.phone;
+		checkPhone.$save(function(data){
+			if(data.count == 0){
+				var username = $scope.user.username;
+				var password = $scope.user.password;
 				$scope.user.$save(function(data){
-						AuthenticationService.Login($scope.data.username, $scope.data.password, function(response) {
-							console.log(response)
+						AuthenticationService.Login(username, password, function(response) {
 							if(response.success) {
-								AuthenticationService.SetCredentials($scope.username, $scope.password);
+								AuthenticationService.SetCredentials(username, password, response.data);
 								$uibModalInstance.close();
-								//$location.path('/journal/45');
-								
+								$location.path('/journal/' + response.id);
 							} else {
 								$scope.error = response.message;
 								$scope.dataLoading = false;

@@ -57,5 +57,15 @@ databaseServices.factory('Authenticate', ['$resource',
         return $resource('http://www.textingjournal.com/api/index.php/authenticate', {}, {
             query: {method:'GET', isArray:true},
         });
+    }]);
+
+/*
+POST
+*/
+databaseServices.factory('CheckPhone', ['$resource',
+    function($resource){
+        return $resource('http://www.textingjournal.com/api/index.php/checknumber', {}, {
+            query: {method:'GET', isArray:true},
+        });
     }]);	
 	
