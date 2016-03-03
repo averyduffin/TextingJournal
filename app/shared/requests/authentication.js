@@ -33,7 +33,13 @@ authenticationServices.factory('AuthenticationService',
 			auth.password = password;
 			auth.$save(function(data){
 				var response = { success: true };
+				
+				console.log(data);
 				response.id = data.id[0].id;
+				response.backgroundURL = data.id[0].backgroundpic;
+				response.profPicURL = data.id[0].profilepic;
+				response.fullname = data.id[0].fullname;
+				console.log(response);
 				callback(response);
 			},
 			function(err){
@@ -44,14 +50,17 @@ authenticationServices.factory('AuthenticationService',
  
         };
   
-        service.SetCredentials = function (username, password, id) {
+        service.SetCredentials = function (username, password, id, backgroundURL, profPicURP, fullname) {
             var authdata = Base64.encode(username + ':' + password);
 
             $rootScope.globals = {
                 currentUser: {
                     username: username,
                     authdata: authdata,
-					id: id
+					id: id,
+					backgroundURL: backgroundURL,
+					profPicURP: profPicURP,
+					fullname: fullname
                 }
             };
   

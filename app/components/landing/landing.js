@@ -53,7 +53,7 @@ LandingPageControllers.controller('landingPageController', ['$scope',  '$interva
 	
 }]);
 
-LandingPageControllers.controller('signInController' , ['$scope', '$uibModalInstance', '$location', '$rootScope', 'AuthenticationService', function($scope, $uibModalInstance,$location, $rootScope, AuthenticationService, data){
+LandingPageControllers.controller('signInController' , ['$scope', '$uibModalInstance', '$location', '$rootScope', 'AuthenticationService','Base64' , function($scope, $uibModalInstance,$location, $rootScope, AuthenticationService,Base64, data){
 	// reset login status
 	AuthenticationService.ClearCredentials();
 	$scope.cancel = function () {
@@ -63,9 +63,11 @@ LandingPageControllers.controller('signInController' , ['$scope', '$uibModalInst
 
 	$scope.ok = function () {
 		$scope.dataLoading = true;
-		AuthenticationService.Login($scope.data.username, $scope.data.password, function(response) {
+		$scope.username = "+1" + $scope.data.username;
+		var encryptedPassword = Base64.encode($scope.username + ':' + $scope.data.password);
+		AuthenticationService.Login($scope.username, encryptedPassword, function(response) {
 			if(response.success) {
-				AuthenticationService.SetCredentials($scope.data.username, $scope.data.password, response.id);
+				AuthenticationService.SetCredentials($scope.username, $scope.data.password, response.data, response.backgroundpic, response.profilepic, response.fullname);
 				$uibModalInstance.close();
 				$location.path('/journal/' + response.id);
 				
@@ -100,7 +102,7 @@ LandingPageControllers.controller('signUpController', ['$scope', '$uibModalInsta
 		  }
 	  }
 	$scope.completeSignUp = function(){
-		$scope.user.username = $scope.user.phone;
+		$scope.user.username = "+1" + $scope.user.phone;
 		if($scope.user.checkbox.daily) $scope.user.questionFrequency = "daily";
 		else if($scope.user.checkbox.weekly) $scope.user.questionFrequency = "weekly";
 		else if($scope.user.checkbox.monthly) $scope.user.questionFrequency = "monthly";
@@ -114,11 +116,12 @@ LandingPageControllers.controller('signUpController', ['$scope', '$uibModalInsta
 		checkPhone.$save(function(data){
 			if(data.count == 0){
 				var username = $scope.user.username;
-				var password = $scope.user.password;
+				var encryptedpassword = $scope.user.password;
+				var password = $scope.user.prepassword;
 				$scope.user.$save(function(data){
-						AuthenticationService.Login(username, password, function(response) {
+						AuthenticationService.Login(username, encryptedpassword, function(response) {
 							if(response.success) {
-								AuthenticationService.SetCredentials(username, password, response.data);
+								AuthenticationService.SetCredentials(username, password, response.data, response.backgroundpic, response.profilepic, response.fullname);
 								$uibModalInstance.close();
 								$location.path('/journal/' + response.id);
 							} else {
