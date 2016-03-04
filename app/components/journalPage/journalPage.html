@@ -44,12 +44,21 @@
 		</div>
 		
 	</div>
-	<div class="row" ng-repeat="entry in entries">
+	<div class="row" ng-show="!hasNoEntries" ng-repeat="entry in entries">
 	<div class="col-md-8 ">
 		<div class="panel panel-default ">
-		  <div class="panel-heading panel-heading-custom">{{entry.questionid}}</div>
+		  <div class="panel-heading panel-heading-custom">{{entry.question}}</div>
 		  <div class="panel-body">
 			<p>{{entry.text}}</p>
+		  </div>
+		  </div>
+	   </div>
+	</div>
+	<div class="row" ng-show="hasNoEntries">
+	<div class="col-md-8 ">
+		<div class="panel panel-default ">
+		  <div class="panel-body">
+			<p>No Entries</p>
 		  </div>
 		  </div>
 	   </div>

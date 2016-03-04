@@ -9,7 +9,7 @@ var page1Controllers = angular.module('page1Controllers', []);
 
 page1Controllers.controller('page1Controller', ['$scope', '$rootScope', '$location', 'AuthenticationService', '$routeParams', 'Entries', function($scope, $rootScope, $location, AuthenticationService, $routeParams, Entries){
 	//console.log($rootScope.globals);
-	
+	$scope.hasNoEntries = true;
 	$scope.fullName = $rootScope.globals.currentUser.fullname;
 	if($rootScope.globals.currentUser.backgroundURL == null){
 		$scope.backgroundURL = "https://placeholdit.imgix.net/~text?txtsize=55&txt=1160%C3%97500&w=1160&h=500";
@@ -29,11 +29,18 @@ page1Controllers.controller('page1Controller', ['$scope', '$rootScope', '$locati
 	var pastdate = new Date();
 	pastdate.setDate(new Date().getDate()- 10)
 
-	$scope.entries.beforeDate = currdate.getFullYear() + currdate.getMonth() + currdate.getDate();
-	$scope.entries.afterDate = pastdate.getFullYear() + pastdate.getMonth() + pastdate.getDate();
-	$scope.entries.$get({id: $rootScope.globals.currentUser.id}, function(data){
-		console.log(data);
-		$scope.entries = data.entries;
+	$scope.entries.beforeDate = String(currdate.getFullYear()) + String(("0" + (currdate.getMonth() + 1)).slice(-2)) + String(("0" + currdate.getDate()).slice(-2));
+	$scope.entries.afterDate = String(pastdate.getFullYear()) + String(("0" + (pastdate.getMonth() + 1)).slice(-2)) + String(("0" + pastdate.getDate()).slice(-2));
+
+	$scope.entries.$post({id:$rootScope.globals.currentUser.id}, function(data){
+		if(data.entries.length == 0){
+			$scope.hasNoEntries = true;
+		}else{
+			$scope.hasNoEntries = false;
+			$scope.entries = data.entries;
+			
+		}
+		
 	},
 	function(err){
 		console.error(err);

@@ -39,7 +39,7 @@ authenticationServices.factory('AuthenticationService',
 				response.backgroundURL = data.id[0].backgroundpic;
 				response.profPicURL = data.id[0].profilepic;
 				response.fullname = data.id[0].fullname;
-				console.log(response);
+
 				callback(response);
 			},
 			function(err){

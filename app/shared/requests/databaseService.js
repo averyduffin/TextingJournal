@@ -36,6 +36,7 @@ databaseServices.factory('Entries', ['$resource',
     function($resource){
         return $resource('http://www.textingjournal.com/api/index.php/entries/:id', { id: '@id'}, {
             query: {method:'GET', isArray:true},
+			post: {method: 'POST'},
         });
     }]);
 
@@ -46,6 +47,7 @@ databaseServices.factory('Questions', ['$resource',
     function($resource){
         return $resource('http://www.textingjournal.com/api/index.php/questions', {}, {
             query: {method:'GET', isArray:true},
+			
         });
     }]);
 
