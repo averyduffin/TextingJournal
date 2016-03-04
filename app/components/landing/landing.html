@@ -1,9 +1,9 @@
 <!-- Navigation -->
-    <nav class="navbar navbar-custom navbar-fixed-top " scroll-header-add-class="5" role="navigation">
+    <nav class="navbar navbar-custom navbar-fixed-top top-nav-collapse" scroll-header-add-class="5" role="navigation">
         <div class="container">
             <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
                 <div class="col-sm-offset-2 col-sm-8">
-			  <button type="submit" ng-click="signinPress()" class="btn btn-landing">Sign In</button>
+			  <button type="submit" ng-click="signinPress()" class="btn btn-signin">Sign In</button>
 			</div>
             </div>
             <!-- /.navbar-collapse -->
@@ -17,21 +17,22 @@
 <div class="row">
 
 <div class="col-md-8 col-md-offset-2">
-	<h1 class="brand-heading"><span class="website-title-texting">Texting</span> Journal</h1>
+	<h1 class="brand-heading"><span class="website-title-texting">Did you forget to text today?</span></h1>
 	<form class="form-horizontal">
 	  <div class="form-group">
 		
-		<div class="col-sm-offset-3 col-sm-6">
+		<div class="col-sm-offset-2 col-sm-6">
 		  <input ng-model="user.phone" phone-input class="form-control input-lg" placeholder="Phone Number">
 		</div>
-	  </div>
-	  <div class="form-group">
-		<div class="col-sm-offset-2 col-sm-8">
+		<div class="col-sm-1">
 		  <button type="submit" ng-click="start()" class="btn btn-landing">Start</button>
 		</div>
 	  </div>
+	  <div class="form-group">
+		
+	  </div>
 	</form>
-	<a href="#about" class="btn btn-circle page-scroll">
+	<a  ng-click="gotoAbout()" class="btn btn-circle page-scroll">
 		<i class="fa fa-chevron-down animated"></i>
 	</a>
 </div>
@@ -44,8 +45,8 @@
 	</div>
 </div>
 
-
-<div class="content-section">
+<div id="about"></div>
+<div class="content-section lg-about" >
 <div class="container">
 	<div class="row">
 		<div class="col-lg-12 text-center">
@@ -118,11 +119,49 @@
 			</div>
 	</div>
 	<div class="row">
-		<div class="col-lg-12 text-center">
+	<div class="col-lg-12 text-center">
 		<img src="app/assets/img/cloud.png"></src>
 		</div>
+		
 	</div>
 </div>
+</div>
+
+<div class="content-section sm-about">
+	<div class="row">
+		<div class="col-lg-12 text-center">
+			<h2 class="section-header-dark">How it works</h2>
+			<hr class="star-primary"></hr>
+		</div>
+	</div>
+	<div class="row">
+		<div class="row">
+			<div class="col-lg-12 text-center">
+				<h3>We text you a question</h3>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="row">
+			<div class="col-lg-12 text-center">
+				<h3>You text us an answer</h3>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="row">
+			<div class="col-lg-12 text-center">
+				<h3>We save your texts in the cloud</h3>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="row">
+			<div class="col-lg-12 text-center">
+				<h3>View all your texts online for free or order a bound copy of your journal</h3>
+			</div>
+		</div>
+	</div>
 </div>
 
 <footer class="text-center">

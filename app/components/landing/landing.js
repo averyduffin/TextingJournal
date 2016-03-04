@@ -4,7 +4,7 @@
 
 var LandingPageControllers = angular.module('LandingPageControllers', []);
 
-LandingPageControllers.controller('landingPageController', ['$scope',  '$interval', '$uibModal', '$log', 'AuthenticationService', 'Users', function($scope,$interval,$uibModal, $log, AuthenticationService, Users){
+LandingPageControllers.controller('landingPageController', ['$scope',  '$interval', '$uibModal', '$log', 'AuthenticationService', 'Users',  '$anchorScroll', '$location', function($scope,$interval,$uibModal, $log, AuthenticationService, Users, $anchorScroll, $location){
 	$scope.data = {};
 	AuthenticationService.ClearCredentials();
 	$scope.user = new Users();
@@ -28,6 +28,12 @@ LandingPageControllers.controller('landingPageController', ['$scope',  '$interva
 		  $log.info('Modal dismissed at: ' + new Date());
 		});
 	};
+	
+	
+	$scope.gotoAbout = function(){
+		$location.hash('about');
+		$anchorScroll();
+	}
 	
 	$scope.start = function (size) {
 		var modalInstance = $uibModal.open({
