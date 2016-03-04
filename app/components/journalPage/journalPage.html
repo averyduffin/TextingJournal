@@ -44,12 +44,12 @@
 		</div>
 		
 	</div>
-	<div class="row">
+	<div class="row" ng-repeat="entry in entries">
 	<div class="col-md-8 ">
 		<div class="panel panel-default ">
-		  <div class="panel-heading panel-heading-custom">What made you excited today?</div>
+		  <div class="panel-heading panel-heading-custom">{{entry.questionid}}</div>
 		  <div class="panel-body">
-			<p>Eating lunch at Sweet & Savory it was the best. But today Haliburton laid off 5,000 employees. that made me a little scared for my job. Its kind of crazy to think that we are in such a scary time.</p>
+			<p>{{entry.text}}</p>
 		  </div>
 		  </div>
 	   </div>
