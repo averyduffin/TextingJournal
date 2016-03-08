@@ -3,7 +3,7 @@
 body {
     width: 100%;
     height: 100%;
-    font-family: 'Source Sans Pro', sans-serif, Helvetica,Arial,sans-serif;
+    font-family: 'Didact Gothic', sans-serif, Helvetica,Arial,sans-serif;
     color: #000;
     background-color: #FFF;
 }
@@ -11,6 +11,7 @@ body {
 html {
     width: 100%;
     height: 100%;
+
 }
 
 h1,
@@ -21,7 +22,7 @@ h5,
 h6 {
     margin: 0 0 35px;
     text-transform: uppercase;
-    font-family: 'Source Sans Pro', sans-serif, Helvetica,Arial,sans-serif;
+    font-family: 'Didact Gothic', sans-serif, Helvetica,Arial,sans-serif;
     font-weight: 700;
     letter-spacing: 1px;
 }
@@ -58,7 +59,7 @@ a {
     border-radius: 100%!important;
     font-size: 40px;
     color: #000;
-    background: 0 0;
+    background: #F0F3BD;
 	
     -webkit-transition: background .3s ease-in-out;
     -moz-transition: background .3s ease-in-out;
@@ -70,7 +71,7 @@ a {
     outline: 0;
     color: #000;
     background: rgba(255,255,255,.1);
-	background-color: #FFF;
+	background-color: #F3F073;
 }
 
 .btn-circle i.animated {
@@ -142,7 +143,7 @@ a:focus {
     margin-bottom: 0;
     border-bottom: 1px solid rgba(255,255,255,.3);
     text-transform: uppercase;
-    font-family: "Anonymous Pro",Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: 'Didact Gothic', sans-serif,"Anonymous Pro",Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     background-color: #247BA0;
 	height: 10px;
 }
@@ -167,7 +168,8 @@ a:focus {
 }
 
 .navbar-custom a {
-    color: #fff;
+    color: #FFF;
+	font-size:3em;
 }
 
 .navbar-custom .nav li a {
@@ -202,7 +204,12 @@ a:focus {
 .sub-navbar{
 	color: #000;
 }
-
+.navbar-brand {
+	padding: 0px 15px;
+}
+.navbar {
+	min-height: 65px;
+}
 
 
 @media(min-width:768px) {
@@ -221,8 +228,11 @@ a:focus {
         border-bottom: 1px solid rgba(255,255,255,.3);
         background: #1B98E0;
 		height: 10px;
-		padding-top: 7px;
+		padding-top: 8px;
     }
+	.navbar-custom.top-nav-collapse .container .navbar-header .navbar-brand{
+		color: #FFF;
+	}
 	.navbar-custom.top-nav-collapse .container .navbar-right .col-sm-8 .btn-signin{
 		background-color:#FFF;
 	}
@@ -245,8 +255,8 @@ a:focus {
     height: auto;
     padding: 100px 0;
     text-align: center;
-    color: #000;
-    background-color: #E8F1F2;
+    color: #FFF;
+    background-color: #1B98E0;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -352,7 +362,7 @@ a:focus {
 .btn {
     border-radius: 0;
     text-transform: uppercase;
-    font-family:  Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: 'Work Sans', sans-serif, Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 400;
     -webkit-transition: all .3s ease-in-out;
     -moz-transition: all .3s ease-in-out;
@@ -462,20 +472,21 @@ width:100%;
 .btn-signin{
 	border: 1px solid #000;
     color: #000;
-    background-color: transparent;
+	padding: 11px 15px;
+    background-color: #F0F3BD;
 }
 .btn-signin:hover,
 .btn-signin:focus {
     border: 1px solid  #000;
     outline: 0;
     color: #000;
-    background-color:  #FFF;
+    background-color:  #F3F073;
 }
 
 .btn-landing{
 	border: 1px solid #000;
     color: #000;
-    background-color: transparent;
+    background-color: #F0F3BD;
 	padding: 10px;
 	font-size: 18px;
 }
@@ -484,7 +495,7 @@ width:100%;
     border: 1px solid  #000;
     outline: 0;
     color: #000;
-    background-color:  #FFF;
+    background-color: #F3F073;
 }
 .overlay-form{
 	text-align:left;
@@ -536,7 +547,7 @@ width:100%;
 	left:7px;
 	width:70%;
 	font-size:6em;
-	font-family: "Anonymous Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-family: 'Work Sans', sans-serif, "Anonymous Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
 	text-align:center
 }
 
@@ -603,18 +614,19 @@ width:100%;
 
 .section-header-dark{
 	font-size: 3em;
-	font-family: "Anonymous Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-family: 'Work Sans', sans-serif, "Anonymous Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
 	color: #24283A;
-	letter-spacing: 20px;
+	letter-spacing: 0px;
 	text-align:center;
 	margin-left: 25px;
+	font-weight: 500;
 }
 
 hr.star-light,
 hr.star-primary {
   padding: 0;
   border: none;
-  border-top: solid 5px;
+  border-top: solid 4px;
   text-align: center;
   max-width: 250px;
   margin: 25px auto 60px;
