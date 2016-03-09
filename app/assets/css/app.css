@@ -208,7 +208,7 @@ a:focus {
 	padding: 0px 15px;
 }
 .navbar {
-	min-height: 65px;
+	min-height: 80px;
 }
 
 
@@ -226,7 +226,7 @@ a:focus {
     .navbar-custom.top-nav-collapse {
         padding: 0;
         border-bottom: 1px solid rgba(255,255,255,.3);
-        background: #1B98E0;
+        background: #247BA0;
 		height: 10px;
 		padding-top: 8px;
     }
@@ -234,13 +234,13 @@ a:focus {
 		color: #FFF;
 	}
 	.navbar-custom.top-nav-collapse .container .navbar-right .col-sm-8 .btn-signin{
-		background-color:#FFF;
+		background-color:#F0F3BD;
 	}
 	.navbar-custom.top-nav-collapse .container .navbar-right .col-sm-8 .btn-signin:hover,
 	.navbar-custom.top-nav-collapse .container .navbar-right .col-sm-8 .btn-signin:focus{
 		background-color:#247BA0;
 		border: 1px solid #000;
-		color: #FFF;
+		color: #F0F3BD;
 		
 	}
 	
@@ -256,7 +256,8 @@ a:focus {
     padding: 100px 0;
     text-align: center;
     color: #FFF;
-    background-color: #1B98E0;
+	background-image: url("../img/bookshelfdark.jpg");
+    background-color: #4f1308;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -413,7 +414,7 @@ footer h3 {
 }
 footer .footer-above {
   padding-top: 50px;
-  background-color: #1B98E0;
+  background-color: #247BA0;
 }
 footer .footer-col {
   margin-bottom: 50px;
@@ -470,10 +471,13 @@ width:100%;
     letter-spacing: 0px;
 }
 .btn-signin{
-	border: 1px solid #000;
+	/*border: 1px solid #000;*/
     color: #000;
+	font-weight:600;
+	font-size: 1.6em;
 	padding: 11px 15px;
     background-color: #F0F3BD;
+	box-shadow: 3px 3px 2px #1E152A;
 }
 .btn-signin:hover,
 .btn-signin:focus {
@@ -484,11 +488,14 @@ width:100%;
 }
 
 .btn-landing{
-	border: 1px solid #000;
+	/*border: 1px solid #000;*/
     color: #000;
     background-color: #F0F3BD;
+	font-weight:600;
+	font-size: 1.6em;
 	padding: 10px;
 	font-size: 18px;
+	box-shadow: 3px 3px 2px #1E152A;
 }
 .btn-landing:hover,
 .btn-landing:focus {
@@ -552,7 +559,7 @@ width:100%;
 }
 
 .container{
-	    padding-bottom: 100px;
+	    /*padding-bottom: 100px;*/
 }
 .container-full-width{
 	background: #FFF;
