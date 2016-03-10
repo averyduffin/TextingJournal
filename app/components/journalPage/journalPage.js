@@ -12,7 +12,7 @@ page1Controllers.controller('page1Controller', ['$scope', '$rootScope', '$locati
 	$scope.hasNoEntries = true;
 	$scope.fullName = $rootScope.globals.currentUser.fullname;
 	if($rootScope.globals.currentUser.backgroundURL == null){
-		$scope.backgroundURL = "https://placeholdit.imgix.net/~text?txtsize=55&txt=1160%C3%97500&w=1160&h=500";
+		$scope.backgroundURL = "https://placeholdit.imgix.net/~text?txtsize=55&txt=1170%C3%97500&w=1170&h=500";
 	}
 	else{
 		$scope.backgroundURL = $rootScope.globals.currentUser.backgroundURL;
@@ -49,5 +49,13 @@ page1Controllers.controller('page1Controller', ['$scope', '$rootScope', '$locati
 	$scope.signOut = function(){
 		AuthenticationService.ClearCredentials();
 		$location.path( "/" );
+	}
+	
+	$scope.journal = function(){
+		$location.path( "/journal/" + $rootScope.globals.currentUser.id );
+	}
+	
+	$scope.profile = function(){
+		$location.path( "/profile" );
 	}
 }]);

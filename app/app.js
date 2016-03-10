@@ -5,7 +5,7 @@ angular.module('myApp', [
   'ngRoute',
     'LandingPageControllers',
   'page1Controllers',
-  'page2Controllers',
+  'profileControllers',
   'page3Controllers',
   'directiveExamples',
   'directives',
@@ -27,13 +27,17 @@ config(['$routeProvider', function($routeProvider) {
         templateUrl: 'app/components/journalPage/journalPage.html',
         controller: 'page1Controller'
       }).
+	  when('/profile', {
+        templateUrl: 'app/components/profile/profile.html',
+        controller: 'profileController'
+      }).
       otherwise({redirectTo: '/landing'});
 }])
 .run(['$rootScope', '$location', '$cookieStore', '$http', '$animate', function ($rootScope, $location, $cookieStore, $http, $animate) {
   $animate.enabled(true);
   
   // keep user logged in after page refresh
-        $rootScope.globals = $cookieStore.get('globals') || {};
+       /* $rootScope.globals = $cookieStore.get('globals') || {};
         if ($rootScope.globals.currentUser) {
             $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata; // jshint ignore:line
         }
@@ -43,5 +47,5 @@ config(['$routeProvider', function($routeProvider) {
             if ($location.path() !== '/landing' && !$rootScope.globals.currentUser) {
                 $location.path('/landing');
             }
-        });
+        });*/
 }]);

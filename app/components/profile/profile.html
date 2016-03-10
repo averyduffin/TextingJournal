@@ -1,0 +1,123 @@
+<nav class="navbar navbar-custom navbar-fixed-top top-nav-collapse" role="navigation">
+	<div class="container container-small">
+	<div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll website-title-texting" href="#page-top">
+                    <img src="app/assets/img/logomd.png"></img> 
+                </a>
+            </div>
+	<div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <div class="col-sm-8">
+					<div class="signin-padding">
+						<button type="submit" ng-click="signOut()" class="btn btn-signin">Sign Out</button>
+					</div>
+				</div>
+            </div>
+	<div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+	<div class="col-sm-8">
+					<div class="signin-padding">
+						<button type="submit" ng-click="profile()" class="btn btn-signin"><i class="fa fa-user"></i></button>
+					</div>
+				</div>
+	</div>
+	<div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+	<div class="col-sm-8">
+					<div class="signin-padding">
+						<button type="submit" ng-click="journal()" class="btn btn-signin"><i class="fa fa-book"></i></button>
+					</div>
+				</div>
+	</div>
+	</div>
+        
+		
+        <!-- /.container -->
+    </nav>
+	
+<div class="content-main container ">
+    <div class="row top100">
+	<form name="outerForm" class="tab-form">
+    <uib-tabset active="activeForm">
+      <uib-tab index="0" heading="Profile">
+        <ng-form name="nestedForm">
+		<div class="row top10">
+				  <div class="form-group">
+					  <div class="col-sm-6">
+						<h2>Personalize Your Journal</h2>
+					  </div>
+				  </div>
+		  </div>
+          <div class="row">
+		  <div class="form-group">
+			<div class="col-sm-6">
+            <label>Name</label>
+			
+            <input type="text" class="form-control" required ng-model="users.fullname"/>
+			</div>
+          </div>
+		  </div>
+		  <div class="row">
+		  <div class="form-group">
+		  <div class="col-sm-6">
+            <label>Phone</label>
+            <input type="text" class="form-control" phone-input required ng-model="users.phonenumber"/>
+          </div>
+		  </div>
+		  </div>
+		  <div class="row">
+		  <div class="form-group">
+		  <div class="col-sm-6">
+            <label>Email</label>
+            <input type="text" class="form-control" required ng-model="users.emailaddress"/>
+          </div>
+		  </div>
+		  </div>
+		  <div class="row top10">
+			  <div class="form-group">
+				  <div class="col-sm-6">
+						<label>Choose Profile Picture</label>
+					  <span class="btn btn-default btn-file">
+						Browse <input type="file" accept="image/*" />
+						</span>
+					</div>
+				</div>
+			</div>
+			<div class="row top10">
+			  <div class="form-group">
+				  <div class="col-sm-6">
+						<label>Choose Gallery Image</label>
+					  <span class="btn btn-default btn-file">
+						Browse <input type="file" accept="image/*" />
+						</span>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				  <div class="form-group">
+					  <div class="col-sm-6">
+						<label>About Summary</label>
+						<textarea class="form-control" rows="3" value="{{users.about}}"></textarea>
+					  </div>
+				  </div>
+		  </div>
+			<div class="row top10">
+			  <div class="form-group">
+				  <div class="col-sm-6">
+						<input class="btn btn-default" type="submit" value="Update"></input>
+						</span>
+					</div>
+				</div>
+			</div>
+			
+        </ng-form>
+      </uib-tab>
+      <uib-tab index="1" heading="Prime Membership">
+        Some Tab Content
+      </uib-tab>
+
+    </uib-tabset>
+  </form>
+  
+  </div>
+  </div>

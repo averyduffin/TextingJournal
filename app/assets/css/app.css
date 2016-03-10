@@ -59,7 +59,7 @@ a {
     border-radius: 100%!important;
     font-size: 40px;
     color: #000;
-    background: #F0F3BD;
+    background: #efe5cf;
 	
     -webkit-transition: background .3s ease-in-out;
     -moz-transition: background .3s ease-in-out;
@@ -208,7 +208,7 @@ a:focus {
 	padding: 0px 15px;
 }
 .navbar {
-	min-height: 80px;
+	min-height: 92px;
 }
 
 
@@ -234,18 +234,29 @@ a:focus {
 		color: #FFF;
 	}
 	.navbar-custom.top-nav-collapse .container .navbar-right .col-sm-8 .btn-signin{
-		background-color:#F0F3BD;
+		background-color:#efe5cf;
 	}
 	.navbar-custom.top-nav-collapse .container .navbar-right .col-sm-8 .btn-signin:hover,
 	.navbar-custom.top-nav-collapse .container .navbar-right .col-sm-8 .btn-signin:focus{
 		background-color:#247BA0;
 		border: 1px solid #000;
-		color: #F0F3BD;
+		color: #efe5cf;
 		
 	}
 	
 }
 
+/*tables*/
+table {
+	background-color:#efe5cf;
+	border-color:transparent;
+}
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
+	border-top: 1px solid transparent;
+}
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th{
+	border-bottom: 1px solid #000;
+}
 
 /*intro*/
 
@@ -255,7 +266,7 @@ a:focus {
     height: auto;
     padding: 100px 0;
     text-align: center;
-    color: #FFF;
+    color: #efe5cf;
 	background-image: url("../img/bookshelfdark.jpg");
     background-color: #4f1308;
     -webkit-background-size: cover;
@@ -309,6 +320,34 @@ a:focus {
 
 .content-section {
     padding-top: 100px;
+	padding-bottom: 100px;
+}
+
+.pricing{
+	padding-top:100px;
+	background: #791d0d;
+	color: white;
+	padding-bottom:100px;
+	background-image: url("../img/bookshelf-lower.jpg");
+    background-color: #4f1308;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+.pricing table{
+	color:#000;
+	font-weight:400;
+	font-size:1.2em;
+	box-shadow: 3px 3px 2px #1E152A;
+}
+.pricing table tr th{
+	text-align:center;
+}
+
+.section-signupnow{
+	padding-top:100px;
+	padding-bottom:100px;
 }
 
 .download-section {
@@ -332,6 +371,7 @@ a:focus {
 @media(min-width:767px) {
     .content-section {
         padding-top: 90px;
+		padding-bottom: 90px;
     }
 
     .download-section {
@@ -371,17 +411,17 @@ a:focus {
 }
 
 .btn-default {
-    border: 1px solid #42dca3;
-    color: #42dca3;
-    background-color: transparent;
+    border: 1px solid #000;
+    color: #000;
+    background-color: #FFF;
 }
 
 .btn-default:hover,
 .btn-default:focus {
-    border: 1px solid #42dca3;
+    border: 1px solid #000;
     outline: 0;
     color: #000;
-    background-color: #42dca3;
+    background-color: #a3a3a3;
 }
 
 ul.banner-social-buttons {
@@ -407,7 +447,7 @@ ul.banner-social-buttons {
 }
 
 footer {
-  color: white;
+  color: #efe5cf;
 }
 footer h3 {
   margin-bottom: 30px;
@@ -476,7 +516,7 @@ width:100%;
 	font-weight:600;
 	font-size: 1.6em;
 	padding: 11px 15px;
-    background-color: #F0F3BD;
+    background-color: #efe5cf;
 	box-shadow: 3px 3px 2px #1E152A;
 }
 .btn-signin:hover,
@@ -490,7 +530,7 @@ width:100%;
 .btn-landing{
 	/*border: 1px solid #000;*/
     color: #000;
-    background-color: #F0F3BD;
+    background-color: #efe5cf;
 	font-weight:600;
 	font-size: 1.6em;
 	padding: 10px;
@@ -628,7 +668,15 @@ width:100%;
 	margin-left: 25px;
 	font-weight: 500;
 }
-
+.section-header-light{
+	font-size: 3em;
+	font-family: 'Work Sans', sans-serif, "Anonymous Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+	color: #efe5cf;
+	letter-spacing: 0px;
+	text-align:center;
+	margin-left: 25px;
+	font-weight: 500;
+}
 hr.star-light,
 hr.star-primary {
   padding: 0;
@@ -638,7 +686,14 @@ hr.star-primary {
   max-width: 250px;
   margin: 25px auto 60px;
 }
-hr.star-light:after,
+hr.star-light:after{
+  font-family: FontAwesome;
+  display: inline-block;
+  position: relative;
+  top: -0.8em;
+  font-size: 2em;
+  padding: 0 0.25em;
+}
 hr.star-primary:after {
   content: "\f292";
   font-family: FontAwesome;
@@ -649,11 +704,11 @@ hr.star-primary:after {
   padding: 0 0.25em;
 }
 hr.star-light {
-  border-color: white;
+  border-color: #efe5cf;
 }
 hr.star-light:after {
-  background-color: #18bc9c;
-  color: white;
+  background-color: #791d0d;
+  color: #efe5cf;
 }
 hr.star-primary {
   border-color: #24283A;
@@ -662,6 +717,8 @@ hr.star-primary:after {
   background-color: white;
   color: #2c3e50;
 }
+
+
 
 .textBubble1-placement{
 	position: absolute;
@@ -793,12 +850,18 @@ hr.star-primary:after {
 .top100 { margin-top:100px; }
 .top200 { margin-top:200px; }
 
+.outer{
+	  position: absolute;
+  width: 52.5%;
+  height: 531px;
+  top: 0px;
 
+}
 .profile-pic{
 	position: absolute;
 	z-index: 10;
-	top: 446px;
-	left: 390px;
+	bottom: 0;
+
 }
 .panel-heading.panel-heading-custom{
 	background-color:#FFF;
@@ -812,5 +875,31 @@ hr.star-primary:after {
 .msg-error{
 	color: #a94442;
 }
+.signin-padding{
+	padding-top:7px;
+}
 
+.fullname-title{
+	font-size: 2em;
+	font-weight:600;
+}
 
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}

@@ -1,4 +1,4 @@
-    <nav class="navbar navbar-custom navbar-fixed-top top-nav-collapse" role="navigation">
+<nav class="navbar navbar-custom navbar-fixed-top top-nav-collapse" role="navigation">
 	<div class="container container-small">
 	<div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
@@ -9,10 +9,26 @@
                 </a>
             </div>
 	<div class="collapse navbar-collapse navbar-right navbar-main-collapse">
-                <div class="col-sm-offset-2 col-sm-8">
-			  <button type="submit" ng-click="signOut()" class="btn btn-signin">Sign Out</button>
-			</div>
+                <div class="col-sm-8">
+					<div class="signin-padding">
+						<button type="submit" ng-click="signOut()" class="btn btn-signin">Sign Out</button>
+					</div>
+				</div>
             </div>
+	<div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+	<div class="col-sm-8">
+					<div class="signin-padding">
+						<button type="submit" ng-click="profile()" class="btn btn-signin"><i class="fa fa-user"></i></button>
+					</div>
+				</div>
+	</div>
+	<div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+	<div class="col-sm-8">
+					<div class="signin-padding">
+						<button type="submit" ng-click="journal()" class="btn btn-signin"><i class="fa fa-book"></i></button>
+					</div>
+				</div>
+	</div>
 	</div>
         
 		
@@ -22,16 +38,19 @@
 <div class="content-main container ">
     <div class="row top30">
 		<img src="{{backgroundURL}}" class="img-responsive" alt="Responsive image">
+		<div class="outer">
 		<div class="profile-pic">
 		<img src="{{profURL}}" class="img-responsive img-thumbnail" alt="Responsive image">
 		</div>
+		</div>
 	  <div class="panel panel-default">
 		  <div class="panel-body">
+		  <span class="fullname-title">{{fullName}}</span>
 		  </div>
 	   </div>
 	</div>
 	<div>
-	{{fullName}}
+	
 	</div>
 </div >
 <div class="container content-main">
