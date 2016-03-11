@@ -7,7 +7,7 @@
 
 var profileControllers = angular.module('profileControllers', []);
 
-profileControllers.controller('profileController', ['$scope', '$rootScope', '$location', 'AuthenticationService', '$routeParams', 'Entries', 'Users', function($scope, $rootScope, $location, AuthenticationService, $routeParams, Entries, Users){
+profileControllers.controller('profileController', ['$scope', '$rootScope', '$location', 'AuthenticationService', '$routeParams', 'Entries', 'Users', 'fileUpload' , function($scope, $rootScope, $location, AuthenticationService, $routeParams, Entries, Users, fileUpload){
 	$scope.signOut = function(){
 		AuthenticationService.ClearCredentials();
 		$location.path( "/" );
@@ -23,13 +23,29 @@ profileControllers.controller('profileController', ['$scope', '$rootScope', '$lo
 
 	$scope.users = new Users();
 	$scope.users.$get({id: $rootScope.globals.currentUser.id}, function(data){
-		console.log(data)
 		$scope.users=data;
 	})
 	$scope.model = {
 		name: 'Tabs'
 	};
 	
+	$scope.update = function(){
+			
+			$scope.users.$save({id: $rootScope.globals.currentUser.id},function(data){
+					
+					$scope.users = data
+					AuthenticationService.SetCredentials($scope.users.username, $scope.users.password, $scope.users.id, $scope.users.backgroundpic, $scope.users.profilepic, $scope.users.fullname, $scope.users.about);
+					console.log("Completed Upload!")
+				});
+	}
 	
+	
+	$scope.uploadFile = function(){
+        var file = $scope.myFile;
+        console.log('file is ' );
+        console.dir(file);
+        var uploadUrl = "/fileUpload";
+        fileUpload.uploadFileToUrl(file, uploadUrl);
+    };
   
 }]);

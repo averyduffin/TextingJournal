@@ -34,11 +34,11 @@ authenticationServices.factory('AuthenticationService',
 			auth.$save(function(data){
 				var response = { success: true };
 				
-				console.log(data);
 				response.id = data.id[0].id;
 				response.backgroundURL = data.id[0].backgroundpic;
 				response.profPicURL = data.id[0].profilepic;
 				response.fullname = data.id[0].fullname;
+				response.about = data.id[0].about;
 
 				callback(response);
 			},
@@ -50,7 +50,7 @@ authenticationServices.factory('AuthenticationService',
  
         };
   
-        service.SetCredentials = function (username, password, id, backgroundURL, profPicURP, fullname) {
+        service.SetCredentials = function (username, password, id, backgroundURL, profPicURP, fullname, about) {
             var authdata = Base64.encode(username + ':' + password);
 
             $rootScope.globals = {
@@ -60,7 +60,8 @@ authenticationServices.factory('AuthenticationService',
 					id: id,
 					backgroundURL: backgroundURL,
 					profPicURP: profPicURP,
-					fullname: fullname
+					fullname: fullname,
+					about: about
                 }
             };
   

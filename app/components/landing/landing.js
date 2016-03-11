@@ -73,8 +73,7 @@ LandingPageControllers.controller('signInController' , ['$scope', '$uibModalInst
 		var encryptedPassword = Base64.encode($scope.username + ':' + $scope.data.password);
 		AuthenticationService.Login($scope.username, encryptedPassword, function(response) {
 			if(response.success) {
-				console.log(response);
-				AuthenticationService.SetCredentials($scope.username, $scope.data.password, response.id, response.backgroundpic, response.profilepic, response.fullname);
+				AuthenticationService.SetCredentials($scope.username, $scope.data.password, response.id, response.backgroundpic, response.profilepic, response.fullname, response.about);
 				$uibModalInstance.close();
 				$location.path('/journal/' + response.id);
 				
@@ -127,8 +126,9 @@ LandingPageControllers.controller('signUpController', ['$scope', '$uibModalInsta
 				var password = $scope.user.prepassword;
 				$scope.user.$save(function(data){
 						AuthenticationService.Login(username, encryptedpassword, function(response) {
+							console.log(response);
 							if(response.success) {
-								AuthenticationService.SetCredentials(username, password, response.data, response.backgroundpic, response.profilepic, response.fullname);
+								AuthenticationService.SetCredentials(username, password, response.id, response.backgroundpic, response.profilepic, response.fullname, response.about);
 								$uibModalInstance.close();
 								$location.path('/journal/' + response.id);
 							} else {

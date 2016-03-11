@@ -88,8 +88,9 @@
 				  <div class="col-sm-6">
 						<label>Choose Gallery Image</label>
 					  <span class="btn btn-default btn-file">
-						Browse <input type="file" accept="image/*" />
+						Browse <input type="file"  file-model="myFile" accept="image/*" />						
 						</span>
+						<button ng-click="uploadFile()">upload me</button>
 					</div>
 				</div>
 			</div>
@@ -97,14 +98,14 @@
 				  <div class="form-group">
 					  <div class="col-sm-6">
 						<label>About Summary</label>
-						<textarea class="form-control" rows="3" value="{{users.about}}"></textarea>
+						<textarea class="form-control" rows="3" ng-model="users.about"></textarea>
 					  </div>
 				  </div>
 		  </div>
 			<div class="row top10">
 			  <div class="form-group">
 				  <div class="col-sm-6">
-						<input class="btn btn-default" type="submit" value="Update"></input>
+						<input class="btn btn-default" ng-click="update()" type="submit" value="Update"></input>
 						</span>
 					</div>
 				</div>

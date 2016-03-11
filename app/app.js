@@ -37,7 +37,7 @@ config(['$routeProvider', function($routeProvider) {
   $animate.enabled(true);
   
   // keep user logged in after page refresh
-       /* $rootScope.globals = $cookieStore.get('globals') || {};
+        $rootScope.globals = $cookieStore.get('globals') || {};
         if ($rootScope.globals.currentUser) {
             $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata; // jshint ignore:line
         }
@@ -47,5 +47,5 @@ config(['$routeProvider', function($routeProvider) {
             if ($location.path() !== '/landing' && !$rootScope.globals.currentUser) {
                 $location.path('/landing');
             }
-        });*/
+        });
 }]);
