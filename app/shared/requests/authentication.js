@@ -50,16 +50,16 @@ authenticationServices.factory('AuthenticationService',
  
         };
   
-        service.SetCredentials = function (username, password, id, backgroundURL, profPicURP, fullname, about) {
+        service.SetCredentials = function (username, password, id, backgroundURL, profPicURL, fullname, about) {
             var authdata = Base64.encode(username + ':' + password);
-
+			console.log(profPicURL);
             $rootScope.globals = {
                 currentUser: {
                     username: username,
                     authdata: authdata,
 					id: id,
 					backgroundURL: backgroundURL,
-					profPicURP: profPicURP,
+					profPicURL: profPicURL,
 					fullname: fullname,
 					about: about
                 }

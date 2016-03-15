@@ -16,7 +16,8 @@ angular.module('myApp', [
   'ngCookies',
   'phonefilters',
   'formRequiredDirectives',
-  'databaseServices'
+  'databaseServices',
+  'ngFileUpload'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/landing', {

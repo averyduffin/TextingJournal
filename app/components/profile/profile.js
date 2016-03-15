@@ -7,7 +7,12 @@
 
 var profileControllers = angular.module('profileControllers', []);
 
-profileControllers.controller('profileController', ['$scope', '$rootScope', '$location', 'AuthenticationService', '$routeParams', 'Entries', 'Users', 'fileUpload' , function($scope, $rootScope, $location, AuthenticationService, $routeParams, Entries, Users, fileUpload){
+profileControllers.controller('profileController', ['$scope', '$rootScope', '$location', 'AuthenticationService', '$routeParams', 'Entries', 'Users', 'fileUpload', 'Upload', '$timeout', function($scope, $rootScope, $location, AuthenticationService, $routeParams, Entries, Users, fileUpload, Upload, $timeout){
+	if($rootScope.globals.currentUser.id == undefined){
+		AuthenticationService.ClearCredentials();
+		$location.path( "/" );
+	}
+	
 	$scope.signOut = function(){
 		AuthenticationService.ClearCredentials();
 		$location.path( "/" );
@@ -30,7 +35,7 @@ profileControllers.controller('profileController', ['$scope', '$rootScope', '$lo
 	};
 	
 	$scope.update = function(){
-			
+			$scope.users.username = "+1" + $scope.users.phonenumber;
 			$scope.users.$save({id: $rootScope.globals.currentUser.id},function(data){
 					
 					$scope.users = data
@@ -39,13 +44,27 @@ profileControllers.controller('profileController', ['$scope', '$rootScope', '$lo
 				});
 	}
 	
-	
-	$scope.uploadFile = function(){
-        var file = $scope.myFile;
-        console.log('file is ' );
-        console.dir(file);
-        var uploadUrl = "/fileUpload";
-        fileUpload.uploadFileToUrl(file, uploadUrl);
-    };
+	$scope.uploadPic = function(file) {
+		file.upload = Upload.upload({
+		  url: 'http://www.textingjournal.com/api/index.php/uploadPhoto',
+		  data: {folder: "prof", file: file},
+		});
+
+		file.upload.then(function (response) {
+		  $timeout(function () {
+			  console.log(response.data[0].url);
+			  $scope.users.profilepic = response.data[0].url;
+			file.result = response.data;
+			
+		  });
+		}, function (response) {
+			//console.log(response.data[0].url);
+		  if (response.status > 0)
+			$scope.errorMsg = response.status + ': ' + response.data;
+		}, function (evt) {
+		  // Math.min is to fix IE which reports 200% sometimes
+		  file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+		});
+    }
   
 }]);

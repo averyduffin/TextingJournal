@@ -73,7 +73,8 @@ LandingPageControllers.controller('signInController' , ['$scope', '$uibModalInst
 		var encryptedPassword = Base64.encode($scope.username + ':' + $scope.data.password);
 		AuthenticationService.Login($scope.username, encryptedPassword, function(response) {
 			if(response.success) {
-				AuthenticationService.SetCredentials($scope.username, $scope.data.password, response.id, response.backgroundpic, response.profilepic, response.fullname, response.about);
+				console.log(response);
+				AuthenticationService.SetCredentials($scope.username, $scope.data.password, response.id, response.backgroundURL, response.profPicURL, response.fullname, response.about);
 				$uibModalInstance.close();
 				$location.path('/journal/' + response.id);
 				

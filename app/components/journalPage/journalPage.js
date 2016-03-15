@@ -8,6 +8,11 @@
 var page1Controllers = angular.module('page1Controllers', []);
 
 page1Controllers.controller('page1Controller', ['$scope', '$rootScope', '$location', 'AuthenticationService', '$routeParams', 'Entries', function($scope, $rootScope, $location, AuthenticationService, $routeParams, Entries){
+	if($rootScope.globals.currentUser.id == undefined){
+		AuthenticationService.ClearCredentials();
+		$location.path( "/" );
+	}
+	
 	//console.log($rootScope.globals);
 	$scope.hasNoEntries = true;
 	$scope.fullName = $rootScope.globals.currentUser.fullname;
@@ -16,13 +21,14 @@ page1Controllers.controller('page1Controller', ['$scope', '$rootScope', '$locati
 		$scope.backgroundURL = "https://placeholdit.imgix.net/~text?txtsize=55&txt=1170%C3%97500&w=1170&h=500";
 	}
 	else{
-		$scope.backgroundURL = $rootScope.globals.currentUser.backgroundURL;
+		$scope.backgroundURL = 'http://www.textingjournal.com/api/' + $rootScope.globals.currentUser.backgroundURL;
 	}
+	console.log($rootScope.globals.currentUser.profPicURL)
 	if($rootScope.globals.currentUser.profPicURL == null){
 		$scope.profURL = 'https://placeholdit.imgix.net/~text?txtsize=22&txt=150%C3%97150&w=150&h=150'
 	}
 	else{
-		$scope.profURL = $rootScope.globals.currentUser.profPicURL;
+		$scope.profURL = 'http://www.textingjournal.com/api/' + $rootScope.globals.currentUser.profPicURL;
 	}
 	
 	$scope.entries = new Entries();
